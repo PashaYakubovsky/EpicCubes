@@ -12,7 +12,7 @@ func _ready():
 	if DisplayServer.get_name() == "headless":
 		print("Automatically starting dedicated server")
 		_on_host_pressed.call_deferred()
-
+		
 
 func _on_host_pressed():
 	# Start as the server
