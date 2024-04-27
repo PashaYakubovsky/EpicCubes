@@ -1,5 +1,6 @@
 res://multiplayer.tscn
-res://level.tscn
-res://player.tscn
-res://player_input.gd
+res://Sandbox.gd
+res://root_scene.tscn
 res://sphere.tscn
+res://player.tscn
+res://root_scene3.tscn

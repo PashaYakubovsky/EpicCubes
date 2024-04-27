@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvnwjpd0f3oa0"]
+[gd_scene load_steps=4 format=3 uid="uid://bvnwjpd0f3oa0"]
 
 [ext_resource type="Script" path="res://multiplayer.gd" id="1_jiv4u"]
-[ext_resource type="PackedScene" uid="uid://c44xmeud8dio" path="res://root_scene3.tscn" id="2_p11f5"]
+[ext_resource type="PackedScene" uid="uid://cc2f4f2qfut7u" path="res://Sandbox.fbx" id="2_g23xv"]
+
+[sub_resource type="GDScript" id="GDScript_eelht"]
+script/source = "extends Node3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+# Example function to handle an interception with another object called 'interceptor'.
+# This can be a signal connection function.
+func _on_Interception_body_entered(interceptor: PhysicsBody3D):
+	# Code to handle the interception with the 'interceptor' object.
+	pass
+"
 
 [node name="Multiplayer" type="Node"]
 script = ExtResource("1_jiv4u")
@@ -58,7 +77,18 @@ placeholder_text = "Remote Host"
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Root Scene" parent="." instance=ExtResource("2_p11f5")]
+[node name="Root Scene" parent="." instance=ExtResource("2_g23xv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64725, 5.27617, -0.0993042)
+script = SubResource("GDScript_eelht")
+
+[node name="Root Scene" parent="Root Scene" instance=ExtResource("2_g23xv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Root Scene/Root Scene"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Root Scene/Root Scene/StaticBody3D"]
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root Scene/Root Scene/StaticBody3D"]
 
 [connection signal="pressed" from="UI/Net/Options/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/Net/Options/Connect" to="." method="_on_connect_pressed"]

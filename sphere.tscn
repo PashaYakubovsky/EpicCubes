@@ -4,9 +4,9 @@
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_deuj3"]
+[sub_resource type="BoxMesh" id="BoxMesh_4602o"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_h6jr2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xscdt"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_q1o6k"]
 properties/0/path = NodePath(".:linear_velocity")
@@ -27,11 +27,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42886, 0)
 physics_material_override = SubResource("PhysicsMaterial_mp5c4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_deuj3")
+mesh = SubResource("BoxMesh_4602o")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_h6jr2")
+shape = SubResource("BoxShape3D_xscdt")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_q1o6k")
