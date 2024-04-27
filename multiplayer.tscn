@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvnwjpd0f3oa0"]
+[gd_scene load_steps=3 format=3 uid="uid://bvnwjpd0f3oa0"]
 
 [ext_resource type="Script" path="res://multiplayer.gd" id="1_jiv4u"]
+[ext_resource type="PackedScene" uid="uid://cc2f4f2qfut7u" path="res://Sandbox.fbx" id="2_g23xv"]
 
 [node name="Multiplayer" type="Node"]
 script = ExtResource("1_jiv4u")
@@ -51,6 +52,9 @@ text = "127.0.0.1"
 placeholder_text = "Remote Host"
 caret_blink = true
 caret_blink_interval = 0.5
+
+[node name="Root Scene" parent="." instance=ExtResource("2_g23xv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64725, 5.27617, -0.0993042)
 
 [connection signal="pressed" from="UI/Net/Options/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/Net/Options/Connect" to="." method="_on_connect_pressed"]
