@@ -1,1 +1,5 @@
 res://multiplayer.tscn
+res://level.tscn
+res://player.tscn
+res://player_input.gd
+res://sphere.tscn

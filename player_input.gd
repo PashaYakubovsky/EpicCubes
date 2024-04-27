@@ -18,6 +18,7 @@ func jump():
 func _process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if Input.is_action_just_pressed("ui_accept"):
+	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	#direction = Input.get_vector( "left", "right", "up", "down")
+	if Input.is_action_just_pressed("jump_action"):
 		jump.rpc()
