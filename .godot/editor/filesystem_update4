@@ -7,3 +7,4 @@ res://root_scene3.tscn
 res://level.tscn
 res://player.gd
 res://multiplayer.gd
+res://level.gd
