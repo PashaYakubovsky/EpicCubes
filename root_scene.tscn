@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfm2g8kk41641"]
+
+[ext_resource type="PackedScene" uid="uid://cc2f4f2qfut7u" path="res://Sandbox.fbx" id="1_cqb64"]
+[ext_resource type="Material" uid="uid://cvtgr34q3a26w" path="res://metal.tres" id="2_rncpj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdfg6"]
+albedo_color = Color(1, 0.795833, 0.51, 1)
+
+[node name="Root Scene" instance=ExtResource("1_cqb64")]
+
+[node name="Plane" parent="RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_rncpj")
+
+[node name="Plane_001" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cdfg6")
+
+[node name="Cube" parent="RootNode" index="2"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -2.19085, 0)
+surface_material_override/0 = ExtResource("2_rncpj")

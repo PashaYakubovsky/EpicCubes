@@ -1,5 +1,5 @@
-res://multiplayer.tscn
+res://metal.tres
 res://level.tscn
+res://multiplayer.tscn
 res://player.tscn
-res://player_input.gd
 res://sphere.tscn
