@@ -1,24 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://efwjm4hfeqf2"]
+[gd_scene load_steps=7 format=3 uid="uid://efwjm4hfeqf2"]
 
 [ext_resource type="PackedScene" uid="uid://c6br8h3si2ypg" path="res://sphere.tscn" id="1_8awbr"]
 [ext_resource type="Script" path="res://level.gd" id="1_p4gvl"]
 [ext_resource type="PackedScene" uid="uid://cfm2g8kk41641" path="res://root_scene.tscn" id="3_vkpna"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s66iy"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ha45t"]
+sky_top_color = Color(0.386597, 0.393846, 0.782929, 1)
+sky_horizon_color = Color(0.81154, 0.775802, 0.855962, 1)
+ground_bottom_color = Color(0.859562, 0.709364, 0.640917, 1)
+ground_horizon_color = Color(0.81154, 0.775802, 0.855962, 1)
+
+[sub_resource type="Sky" id="Sky_8tlpf"]
+sky_material = SubResource("ProceduralSkyMaterial_ha45t")
+
+[sub_resource type="Environment" id="Environment_pyqva"]
+background_mode = 2
+sky = SubResource("Sky_8tlpf")
+tonemap_mode = 2
 
 [node name="World" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0)
 script = ExtResource("1_p4gvl")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pyqva")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.272321, 0.419338, 0, 0.83867, 0.544639, -0.500003, 0.47167, -0.726308, 0, 0, 0)
+light_color = Color(0.683077, 0.683077, 0.683077, 1)
+shadow_enabled = true
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-2.04999e-08, -0.700972, 0.713189, -4.21146e-09, 0.713189, 0.700972, -1, 1.13662e-08, -1.75724e-08, 47.5405, 38.7249, 0.0438376)
+transform = Transform3D(1, 0, 0, 0, 0.713251, 0.700909, 0, -0.700909, 0.713251, 0, 38.725, 41.8333)
 fov = 50.0
 far = 1000.0
-
-[node name="Floor" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape3D_s66iy")
 
 [node name="Objects" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69207, 4.70696e-07)

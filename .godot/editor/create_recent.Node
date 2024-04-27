@@ -1,3 +1,4 @@
+DirectionalLight3D
 CollisionShape3D
 MultiplayerSynchronizer
 StaticBody3D

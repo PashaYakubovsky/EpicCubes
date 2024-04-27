@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvnwjpd0f3oa0"]
+[gd_scene load_steps=2 format=3 uid="uid://bvnwjpd0f3oa0"]
 
 [ext_resource type="Script" path="res://multiplayer.gd" id="1_jiv4u"]
-[ext_resource type="PackedScene" uid="uid://c44xmeud8dio" path="res://root_scene3.tscn" id="2_p11f5"]
 
 [node name="Multiplayer" type="Node"]
 script = ExtResource("1_jiv4u")
@@ -57,8 +56,6 @@ text = "127.0.0.1"
 placeholder_text = "Remote Host"
 caret_blink = true
 caret_blink_interval = 0.5
-
-[node name="Root Scene" parent="." instance=ExtResource("2_p11f5")]
 
 [connection signal="pressed" from="UI/Net/Options/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/Net/Options/Connect" to="." method="_on_connect_pressed"]

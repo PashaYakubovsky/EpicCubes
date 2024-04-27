@@ -1,10 +1,2 @@
-res://multiplayer.tscn
-res://Sandbox.gd
-res://root_scene.tscn
-res://sphere.tscn
-res://player.tscn
-res://root_scene3.tscn
 res://level.tscn
-res://player.gd
-res://multiplayer.gd
-res://level.gd
+res://metal.tres
