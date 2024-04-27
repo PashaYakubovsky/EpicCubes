@@ -15,14 +15,31 @@ func _ready():
 
 
 func _on_host_pressed():
-	# Start as server
+	# Start as the server
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_server(PORT)
-	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
-		OS.alert("Failed to start multiplayer server")
+	print("Starting ENet server on port %d using UDP transport." % PORT) # Log transport and port
+
+	var result = peer.create_server(PORT)
+	
+	# Check if we succeeded in creating a server
+	if result != OK:
+		OS.alert("Failed to start multiplayer server with error code: %d" % result)
+		push_error("Failed to start multiplayer server with error code: %d" % result) # Log the error
 		return
+		
+	# Check the initial connection status of the peer
+	match peer.get_connection_status():
+		MultiplayerPeer.CONNECTION_CONNECTING:
+			print("Connection is being established.")
+		MultiplayerPeer.CONNECTION_CONNECTED:
+			print("Successfully connected to the server.")
+		MultiplayerPeer.CONNECTION_DISCONNECTED:
+			OS.alert("Failed to start multiplayer server, not connected.")
+			push_error("Peer is disconnected. Failed to start multiplayer server.") # Log the error
+			return
+	
 	multiplayer.multiplayer_peer = peer
-	start_game()
+	start_game()  # Assuming 'start_game()' is defined elsewhere in your script.
 
 
 func _on_connect_pressed():
